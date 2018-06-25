@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+  <h1>New game:</h1>
+  <h2>Find the longest word you can</h2>
+  <ul class="letters">
+    <% @letters.each do |letter| %>
+      <li class="letter"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <form action="/score" method="get">
+  <input type="text" name="response" placeholder="Your longest word is">
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="submit" class="btn btn-success" placeholder="Play">
+  </form>
+
+</body>
+</html>
